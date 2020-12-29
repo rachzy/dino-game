@@ -1,20 +1,51 @@
 html, body {
-    background-color: darkslategray;
+    background-color: #fafafa;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
+    overflow: hidden;
+    overflow-y: hidden !important; /* Hide vertical scrollbar */
+    overflow-x: hidden !important; /* Hide horizontal scrollbar */
 }
 
 .dino {
+    background-image: url(../assets/dino.png);
+    background-size: cover;
     width: 60px;
     height: 60px;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     position: absolute;
     bottom: 50%;
 }
 
 .cactus {
+    background-image: url(../assets/cactus.png);
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: green;
+    /* background-color: green; */
     bottom: 50%;
+}
+
+.game-over{
+    text-align: center;
+    color: #666666;
+    margin-top: 50px;
+}
+
+@keyframes slideRight {
+    from {
+        background-position: 70000%;
+    }
+    to {
+        background-position: 0;
+    }
+}
+
+.background {
+    position: absolute;
+    bottom: 50%;
+    background-image: url(../assets/background.png);
+    background-repeat: repeat-x;
+    animation: slideRight 600s infinite linear;
+    width: 100%;
+    height: 200px;
 }

@@ -1,11 +1,16 @@
 const background = document.querySelector(".background");
+const myBody = document.querySelector(".body");
 const dino = document.querySelector(".dino");
 
 //clássica de verificação
 let isJumping = false;
 
+//position Y do Dino
+let positionZero = 50;
 //listener do botão solto
 document.addEventListener("keydown", myKeyUp);
+
+myBody.onclick = () => jump();
 
 //function de handle dos botões do teclado
 function myKeyUp(e) 
@@ -23,7 +28,7 @@ function myKeyUp(e)
 
 function jump()
 {
-    let positionZero = 50;
+    
     isJumping = true;
 
     let upInterval = setInterval(() => {
@@ -39,7 +44,7 @@ function jump()
                 }
                 else
                 {
-                    positionZero -= 2;
+                    positionZero -= 1;
                 }
                 dino.style.bottom = positionZero + "%";
             }, 10);
@@ -57,11 +62,35 @@ function createCactus()
 {
     let cactus = document.createElement("div");
     let cactusPos = 1000;
+    let randomTime = Math.random() * 6000;
 
     cactus.classList.add("cactus");
     cactus.style.left = cactusPos + "px";
 
-    background.appendChild(cactus);
+    myBody.appendChild(cactus);
+
+    let leftInterval = setInterval(() =>{
+        if(cactusPos < -60)
+        {
+            myBody.removeChild(cactus);
+            clearInterval(leftInterval);
+            
+        }
+        else if (cactusPos > 0 && cactusPos < 60 && positionZero < 60)
+        {
+            //colisão e gameover
+            clearInterval(leftInterval);
+            clearTimeout(createCactus);
+            document.body.innerHTML = "<h1 class='game-over'>Fim de jogo</h1>"
+        }
+        else
+        {
+            cactusPos -= 10;
+            cactus.style.left = cactusPos + "px";
+        }
+    }, 20);
+
+    setTimeout(createCactus, randomTime);
 }
 
 createCactus();
