@@ -2,3 +2,19 @@ html, body {
     background-color: darkslategray;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
+
+.dino {
+    width: 60px;
+    height: 60px;
+    background-color: cadetblue;
+    position: absolute;
+    bottom: 50%;
+}
+
+.cactus {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: green;
+    bottom: 50%;
+}
