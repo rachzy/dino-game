@@ -1,7 +1,7 @@
-# Template web
-template para usar nos estudos de web front-end.
+# Jogo do Dino
+uma versão mais simples do jogo do Dinossauro do Chrome. Feita com JS vanilla e CSS com base na aula do professor Celso da DIO.
 
-Para testar a versão ao vivo, [clique aqui.](https://cursos-e-estudos.github.io/template-de-web/)
+Para testar a versão ao vivo, [clique aqui.](https://cursos-e-estudos.github.io/dino-game/)
 <br>
 
 <p align="center">
@@ -22,8 +22,7 @@ Para testar a versão ao vivo, [clique aqui.](https://cursos-e-estudos.github.io
 <b> Visual mobile </b>
 </p>
 <p align="center">
-  <img width="200" src="assets/screenshots/screenshot2.png">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  <img width="200" src="assets/screenshots/screenshot3.png">
+  <img width="200" src="assets/screenshots/screenshot2.png">
 </p>
 
 ---
