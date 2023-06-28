@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jogo do Dino</title>
 
     <!-- icones -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/icons/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/icons/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body class="body">
-    <div class="background">
-        
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/botao-gay.css" />
+  </head>
+  <body>
+    <div class="scores">
+      <p>
+        <span style="color: yellow">Pontos:</span>
+        <span id="current-score">0</span>
+      </p>
+      <p>
+        <span style="color: chartreuse">Highscore:</span>
+        <span id="highscore">0</span>
+      </p>
     </div>
-    <div class="dino"></div>
+    <div class="game-over-wrapper">
+      <h1>Game Over!</h1>
+      <p>Você conseguiu: <span id="score"></span> pontos.</p>
+      <button id="btn-tentar-novamente" type="button" class="button btn-primary flexbox">
+        <ion-icon name="folder-open-outline"></ion-icon> Tentar novamente
+        <div class="btn-secondary"></div>
+      </button>
+    </div>
+    <div id="mainframe">
+      <div class="background"></div>
+      <div class="dino"></div>
+    </div>
     <script defer src="assets/main.js"></script>
-</body>
+  </body>
 </html>
