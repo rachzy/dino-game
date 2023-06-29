@@ -6,6 +6,12 @@ const scoreLabel = document.querySelector("#score");
 const currentScoreLabel = document.querySelector("#current-score");
 const highscoreLabel = document.querySelector("#highscore");
 const btnTentarNovamente = document.querySelector("#btn-tentar-novamente");
+const pressSpace = document.querySelector("#press-space");
+
+// Soundtrack
+const soundtrack = new Audio("../assets/audios/soundtrack.mp3");
+
+let gameStarted = false;
 
 let score = 0;
 let highSchore = 0;
@@ -23,11 +29,21 @@ let positionZero = 27;
 //listener do botão solto
 document.addEventListener("keydown", myKeyUp);
 
-document.body.onclick = () => jump();
+document.body.onclick = (e) => {
+  if (e.target.className.startsWith("button")) return;
+
+  jump();
+};
 
 //function de handle dos botões do teclado
 function myKeyUp(e) {
-  console.log(e.key);
+  if (!gameStarted) {
+    soundtrack.play();
+    createBanana();
+
+    gameStarted = true;
+    pressSpace.style.display = "none";
+  }
   if (e.key === " " && !isJumping) {
     jump();
   }
@@ -57,63 +73,72 @@ function jump() {
   }, 20);
 }
 
-function createCactus() {
-  let cactus = document.createElement("div");
-  let cactusPos = 1500;
-  let randomTime = Math.min(3000, Math.random() * 8000);
+function createBanana() {
+  let banana = document.createElement("div");
+  let bananaPos = 1500;
+  let randomTime = Math.min(3700, Math.random() * 9000);
 
-  cactus.classList.add("cactus");
-  cactus.style.left = cactusPos + "px";
+  banana.classList.add("banana");
+  banana.style.left = bananaPos + "px";
 
-  document.body.appendChild(cactus);
+  mainFrame.appendChild(banana);
 
   let leftInterval = setInterval(() => {
     if (gameOver) return clearInterval(leftInterval);
     score += 0.1;
     currentScoreLabel.textContent = Math.floor(score);
 
-    if (cactus < -60) {
-      document.body.removeChild(cactus);
+    if (banana < -60) {
+      mainFrame.removeChild(banana);
       return clearInterval(leftInterval);
     }
 
-    if (cactusPos > 0 && cactusPos < 40 && positionZero < 40) {
+    if (bananaPos > 0 && bananaPos < 40 && positionZero < 40) {
       //colisão e gameover
       clearInterval(leftInterval);
-      clearTimeout(createCactus);
+      clearTimeout(createBanana);
       document.body.classList.add("game-over");
       scoreLabel.textContent = Math.floor(score);
       gameOver = true;
+      gameStarted = false;
+      soundtrack.pause();
 
       highSchore = Math.max(highSchore, score);
       return (highscoreLabel.textContent = Math.floor(highSchore));
     }
 
-    cactusPos -= 10 + 2 * level;
-    cactus.style.left = cactusPos + "px";
+    bananaPos -= 10 + 2 * level;
+    banana.style.left = bananaPos + "px";
   }, 20 - 2 * level);
 
   if (gameOver) return;
 
-  setTimeout(createCactus, randomTime);
+  setTimeout(createBanana, randomTime);
 }
-createCactus();
 
 setInterval(() => {
-  if (gameOver) return;
+  background.classList.remove(`level-${level}`);
+
+  if (gameOver || !gameStarted) return;
   if (level >= 8) return;
   level++;
+
+  background.classList.add(`level-${level}`);
 }, 10000);
 
 btnTentarNovamente.addEventListener("click", () => {
-  const cactus = document.querySelectorAll(".cactus");
+  soundtrack.currentTime = 0;
+  soundtrack.play();
 
-  cactus.forEach((cact) => (cact.style.display = "none"));
+  const banana = document.querySelectorAll(".banana");
+
+  banana.forEach((cact) => (cact.style.display = "none"));
 
   gameOver = false;
   score = 0;
   level = 1;
 
-  createCactus();
+  createBanana();
+  gameStarted = true;
   document.body.classList.remove("game-over");
 });

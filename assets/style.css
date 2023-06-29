@@ -11,7 +11,14 @@
   margin: 0;
   padding: 0;
   color: white;
+  user-select: none;
 }
+
+button {
+  outline: none;
+}
+
+/* HTML & BODY */
 
 html,
 body {
@@ -28,13 +35,32 @@ body.game-over div.game-over-wrapper {
   display: flex;
 }
 
-body.game-over .cactus {
+body.game-over .banana {
   display: none;
 }
 
 body.game-over div#mainframe {
   display: none;
 }
+
+/* SPACE ALERT */
+
+div.space-alert {
+  width: 100vw;
+
+  position: absolute;
+  top: 10%;
+
+  text-align: center;
+
+  z-index: 999;
+}
+
+div.space-alert h1 {
+  font-size: 3rem;
+}
+
+/* MONKEY */
 
 .monkey {
   background-image: url(../assets/game/monkey.gif);
@@ -48,14 +74,19 @@ body.game-over div#mainframe {
   margin-left: 2vh;
 }
 
-.cactus {
-  background-image: url(../assets/game/cactus.png);
+/* BANANA */
+
+.banana {
+  background-image: url(../assets/game/banana.gif);
+  background-size: cover;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   /* background-color: green; */
   bottom: 30%;
 }
+
+/* GAME-OVER SCREEN */
 
 div.game-over-wrapper {
   display: none;
@@ -88,9 +119,56 @@ div.game-over-wrapper button {
   width: fit-content;
 }
 
-@keyframes slideRight {
+/* ANIMATIONS */
+
+@keyframes slideRight1 {
   from {
-    background-position: -70000%;
+    background-position: -40000%;
+  }
+  to {
+    background-position: 0;
+  }
+}
+
+@keyframes slideRight2 {
+  from {
+    background-position: -60000%;
+  }
+  to {
+    background-position: 0;
+  }
+}
+
+@keyframes slideRight3 {
+  from {
+    background-position: -80000%;
+  }
+  to {
+    background-position: 0;
+  }
+}
+
+@keyframes slideRight4 {
+  from {
+    background-position: -100000%;
+  }
+  to {
+    background-position: 0;
+  }
+}
+
+@keyframes slideRight5 {
+  from {
+    background-position: -130000%;
+  }
+  to {
+    background-position: 0;
+  }
+}
+
+@keyframes slideRight6 {
+  from {
+    background-position: -150000%;
   }
   to {
     background-position: 0;
@@ -104,10 +182,39 @@ div.game-over-wrapper button {
 
   background-attachment: fixed;
   background-image: url("../assets/game/background.jpg");
-  animation: slideRight 600s infinite linear;
+  animation: slideRight1 600s infinite linear;
   background-repeat: repeat-x;
 
   background-color: #000000;
+  border-bottom: 0.2vh solid white;
+}
+
+.background.level-2 {
+  animation: slideRight2 600s infinite linear;
+}
+
+.background.level-3 {
+  animation: slideRight3 500s infinite linear;
+}
+
+.background.level-4 {
+  animation: slideRight4 500s infinite linear;
+}
+
+.background.level-5 {
+  animation: slideRight5 500s infinite linear;
+}
+
+.background.level-6 {
+  animation: slideRight6 500s infinite linear;
+}
+
+.background.level-7 {
+  animation: slideRight6 500s infinite linear;
+}
+
+.background.level-8 {
+  animation: slideRight6 500s infinite linear;
 }
 
 div.scores {
