@@ -1,3 +1,12 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +20,8 @@ body {
   overflow: hidden;
   overflow-y: hidden !important; /* Hide vertical scrollbar */
   overflow-x: hidden !important; /* Hide horizontal scrollbar */
+
+  animation: fadeIn 0.2s;
 }
 
 body.game-over div.game-over-wrapper {
@@ -33,6 +44,8 @@ body.game-over div#mainframe {
   /* background-color: cadetblue; */
   position: absolute;
   bottom: 30%;
+
+  margin-left: 2vh;
 }
 
 .cactus {
@@ -55,6 +68,7 @@ div.game-over-wrapper {
   height: 100vh;
 
   position: absolute;
+  background-color: #000000;
 }
 
 div.game-over-wrapper h1 {
@@ -92,6 +106,8 @@ div.game-over-wrapper button {
   background-image: url("../assets/game/background.jpg");
   animation: slideRight 600s infinite linear;
   background-repeat: repeat-x;
+
+  background-color: #000000;
 }
 
 div.scores {

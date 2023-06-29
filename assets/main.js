@@ -15,6 +15,9 @@ let gameOver = false;
 //clássica de verificação
 let isJumping = false;
 
+// level do game
+let level = 1;
+
 //position Y do Dino
 let positionZero = 30;
 //listener do botão solto
@@ -24,11 +27,9 @@ document.body.onclick = () => jump();
 
 //function de handle dos botões do teclado
 function myKeyUp(e) {
-  if (e.keyCode == 32) {
-    console.log("\n espaço");
-    if (!isJumping) {
-      jump();
-    }
+  console.log(e.key);
+  if (e.key === " " && !isJumping) {
+    jump();
   }
 }
 
@@ -88,15 +89,21 @@ function createCactus() {
       return (highscoreLabel.textContent = Math.floor(highSchore));
     }
 
-    cactusPos -= 10;
+    cactusPos -= 10 + 2 * level;
     cactus.style.left = cactusPos + "px";
-  }, 20);
+  }, 20 - 2 * level);
 
   if (gameOver) return;
 
   setTimeout(createCactus, randomTime);
 }
 createCactus();
+
+setInterval(() => {
+  if (gameOver) return;
+  if (level >= 8) return;
+  level++;
+}, 10000);
 
 btnTentarNovamente.addEventListener("click", () => {
   const cactus = document.querySelectorAll(".cactus");
@@ -105,6 +112,7 @@ btnTentarNovamente.addEventListener("click", () => {
 
   gameOver = false;
   score = 0;
+  level = 1;
 
   createCactus();
   document.body.classList.remove("game-over");
