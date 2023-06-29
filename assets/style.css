@@ -36,14 +36,14 @@ body.game-over div#mainframe {
   display: none;
 }
 
-.dino {
-  background-image: url(../assets/game/dino.png);
+.monkey {
+  background-image: url(../assets/game/monkey.gif);
   background-size: cover;
-  width: 60px;
-  height: 60px;
+  width: 120px;
+  height: 120px;
   /* background-color: cadetblue; */
   position: absolute;
-  bottom: 30%;
+  bottom: 27%;
 
   margin-left: 2vh;
 }

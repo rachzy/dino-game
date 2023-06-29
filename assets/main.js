@@ -1,5 +1,5 @@
 const background = document.querySelector(".background");
-const dino = document.querySelector(".dino");
+const monkey = document.querySelector(".monkey");
 const gameOverWrapper = document.querySelector(".game-over-wrapper");
 const mainFrame = document.querySelector("#mainframe");
 const scoreLabel = document.querySelector("#score");
@@ -18,8 +18,8 @@ let isJumping = false;
 // level do game
 let level = 1;
 
-//position Y do Dino
-let positionZero = 30;
+//position Y do monkey
+let positionZero = 27;
 //listener do botão solto
 document.addEventListener("keydown", myKeyUp);
 
@@ -40,19 +40,19 @@ function jump() {
     if (positionZero > 55) {
       clearInterval(upInterval);
       let downInterval = setInterval(() => {
-        if (positionZero <= 30) {
+        if (positionZero <= 27) {
           clearInterval(downInterval);
-          positionZero = 30;
+          positionZero = 27;
           isJumping = false;
         } else {
           positionZero -= 1;
         }
-        dino.style.bottom = positionZero + "%";
+        monkey.style.bottom = positionZero + "%";
       }, 20);
     } else {
       positionZero += 2;
 
-      dino.style.bottom = positionZero + "%";
+      monkey.style.bottom = positionZero + "%";
     }
   }, 20);
 }
@@ -60,7 +60,7 @@ function jump() {
 function createCactus() {
   let cactus = document.createElement("div");
   let cactusPos = 1500;
-  let randomTime = Math.min(2000, Math.random() * 8000);
+  let randomTime = Math.min(3000, Math.random() * 8000);
 
   cactus.classList.add("cactus");
   cactus.style.left = cactusPos + "px";
