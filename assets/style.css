@@ -123,7 +123,7 @@ div.game-over-wrapper button {
 
 @keyframes slideRight1 {
   from {
-    background-position: -40000%;
+    background-position: 40000%;
   }
   to {
     background-position: 0;
@@ -132,7 +132,7 @@ div.game-over-wrapper button {
 
 @keyframes slideRight2 {
   from {
-    background-position: -60000%;
+    background-position: 60000%;
   }
   to {
     background-position: 0;
@@ -141,7 +141,7 @@ div.game-over-wrapper button {
 
 @keyframes slideRight3 {
   from {
-    background-position: -80000%;
+    background-position: 80000%;
   }
   to {
     background-position: 0;
@@ -150,7 +150,7 @@ div.game-over-wrapper button {
 
 @keyframes slideRight4 {
   from {
-    background-position: -100000%;
+    background-position: 100000%;
   }
   to {
     background-position: 0;
@@ -159,7 +159,7 @@ div.game-over-wrapper button {
 
 @keyframes slideRight5 {
   from {
-    background-position: -130000%;
+    background-position: 130000%;
   }
   to {
     background-position: 0;
@@ -168,7 +168,7 @@ div.game-over-wrapper button {
 
 @keyframes slideRight6 {
   from {
-    background-position: -150000%;
+    background-position: 150000%;
   }
   to {
     background-position: 0;
