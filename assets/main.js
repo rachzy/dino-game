@@ -9,7 +9,7 @@ const btnTentarNovamente = document.querySelector("#btn-tentar-novamente");
 const pressSpace = document.querySelector("#press-space");
 
 // Soundtrack
-const soundtrack = new Audio("../assets/audios/soundtrack.mp3");
+const soundtrack = new Audio("./assets/audios/soundtrack.mp3");
 
 let gameStarted = false;
 
